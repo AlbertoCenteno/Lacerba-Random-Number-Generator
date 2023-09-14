@@ -14,5 +14,8 @@
     "generator"
   ],
   "author": "Alberto",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.6.0"
+  }
 }
