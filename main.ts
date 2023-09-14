@@ -28,4 +28,34 @@ for(const ruota of wheels){
     extractions[ruota] = extraction;
 }
 
-console.log(extractions);
+function createWheelContainer(wheelName: string, extractions: number[]) {
+    const wheelDiv = document.createElement('div');
+    wheelDiv.className = `ruota ${wheelName.toLowerCase()}`;
+    const nameH2 = document.createElement('h2');
+    nameH2.className = 'ruota-title';
+    nameH2.innerText = wheelName;
+    wheelDiv.appendChild(nameH2);
+
+    for(const num of extractions){
+        const numP = document.createElement('p');
+        numP.innerText = '' + num;
+        const numDiv = document.createElement('div');
+        numDiv.className = 'ruota-estrazione';
+        numDiv.appendChild(numP);
+        wheelDiv.appendChild(numDiv);
+    }
+
+
+    return wheelDiv
+}
+
+const container = document.getElementById('container');
+if(container){
+    const pre = document.createElement('pre');
+
+    for(const wheel of wheels){
+        const wheelExtractions = extractions[wheel];
+        const wheelDiv = createWheelContainer(wheel, wheelExtractions);
+        container.appendChild(wheelDiv);
+    }
+}
